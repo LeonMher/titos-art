@@ -42,7 +42,7 @@ export const Projects = () =>{
 
     
     return(
-        <div className="flex justify-center items-center flex-col gap-midium">
+        <div className="flex justify-center items-center flex-col gap-midium ">
             <p className="text-4xl">Projects</p>
             <div className="w-[100px] h-[5px] bg-yellow-400"></div>
             {projects.map((project)=>{

@@ -6,13 +6,13 @@ import { Footer } from "@/components/footer/Footer";
 
 export default function Home() {
   return (
-    <div className="p-[20px]">
+    <div className="p-[20px] flex flex-col items-center">
       <Navigation />
-      <div className="flex justify-center gap-extraLarge">
+      <div className="flex justify-between flex-col items-center flex-col-reverse md:flex-row">
         <Introduction />
         <ProfilePicture />
       </div>
-      <div className="flex flex-col gap-extraLarge">
+      <div className="flex flex-col gap-extraLarge mt-large">
         <Projects />
         <Footer />
       </div>
