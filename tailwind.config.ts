@@ -19,6 +19,7 @@ const config: Config = {
       little: "10px",
       midium: "20px",
       large: "60px",
+      extraLarge: "220px"
     },
   },
   plugins: [],

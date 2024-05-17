@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export const ProfilePicture = () => {
   return (
-    <div className="border flex justify-end p-[40px]">
+    <div className="flex justify-end p-[40px]">
       <Image
-        className="border"
+        className="borderOval"
         src={ProfilePic}
         width={300}
         height={300}
