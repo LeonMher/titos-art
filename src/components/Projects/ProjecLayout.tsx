@@ -13,7 +13,7 @@ type TProject = {
 export const ProjectLayout = (props: TProject) =>{
     const {project} = props
     return(
-        <div className="flex flex-col gap-[20px] border border-indigo-200 rounded-md md:w-[1000px] md:h-[400px] md:flex-row">
+        <div className="flex flex-col gap-[20px] border border-indigo-200 p-[20px] rounded-md md:w-[1000px] md:h-[400px] md:flex-row">
             {!oddNumber(project.id) ? (
                 <>
                 <div className="relative w-[400px] md:flex md:flex-col md:items-center md:flex-1">

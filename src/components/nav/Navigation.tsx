@@ -2,10 +2,9 @@ export const Navigation = () => {
   return (
     <>
       <nav>
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <span>Name</span>
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
 
-          <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <div id="navbar-default">
             <ul className="flex gap-large">
               <li>
                 <a
