@@ -3,6 +3,12 @@ import { useFormik } from "formik";
 import { Navigation } from "@/components/nav/Navigation";
 
 
+type TErrors = {
+    name?: string
+    email?: string
+    message?: string
+}
+
 export default function Contact() {
 
     const formik = useFormik({
@@ -14,6 +20,24 @@ export default function Contact() {
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
         },
+
+        validate: values => {
+            const errors: TErrors = {}
+
+            if(!values.name) {
+                errors.name = 'Required'    
+            }
+
+            if(!values.email) {
+                errors.email = 'Required'    
+            }
+
+            if(!values.message) {
+                errors.message = 'Required'    
+            }
+
+            return errors
+        }
     })   
 
     console.log(formik.values)
@@ -26,15 +50,18 @@ export default function Contact() {
             <form onSubmit={formik.handleSubmit} className="flex flex-col w-[400px] gap-midium">
                 <div className='flex flex-col'>
                 <label htmlFor="name">Name</label>
-                <input className='h-[40px] p-[10px] rounded' type="text" placeholder="name" name="name" id="name" onChange={formik.handleChange} value={formik.values.name} />
+                <input className='h-[40px] p-[10px] rounded' type="text" placeholder="name" name="name" id="name" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.name} />
+                {formik.touched.name && formik.errors.name ? <p className='text-red-500'>{formik.errors.name}</p> : null}
                 </div>
                 <div className='flex flex-col'>
                 <label htmlFor="email">Email</label>
-                <input className='h-[40px] p-[10px] rounded' type="text" placeholder="email" name="email" id="email" onChange={formik.handleChange} value={formik.values.email} />
+                <input className='h-[40px] p-[10px] rounded' type="text" placeholder="email" name="email" id="email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
+                {formik.touched.email && formik.errors.email ? <p className='text-red-500'>{formik.errors.email}</p> : null}
                 </div>
                 <div className='flex flex-col'>
                 <label htmlFor="message">Message</label>
-                <input className='h-[40px] p-[10px] rounded' type="text" placeholder="message" name="message" id="message" onChange={formik.handleChange} value={formik.values.message} />
+                <input className='h-[40px] p-[10px] rounded' type="text" placeholder="message" name="message" id="message" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.message} />
+                {formik.touched.message &&formik.errors.message ? <p className='text-red-500'>{formik.errors.message}</p> : null}
                 </div>
                 <button className="h-[40px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
             </form>
