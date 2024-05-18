@@ -45,8 +45,8 @@ export const Projects = () =>{
         <div className="flex justify-center items-center flex-col gap-midium ">
             <p className="text-4xl">Projects</p>
             <div className="w-[100px] h-[5px] bg-yellow-400"></div>
-            {projects.map((project)=>{
-            return <ProjectLayout project={project}/>
+            {projects.map((project, key)=>{
+            return <ProjectLayout key={project.id} project={project}/>
 
             })}
             
