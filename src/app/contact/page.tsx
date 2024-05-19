@@ -1,13 +1,20 @@
 'use client'
 import { useFormik } from "formik";
 import { Navigation } from "@/components/nav/Navigation";
-
+import * as Yup from 'yup'
 
 type TErrors = {
     name?: string
     email?: string
     message?: string
 }
+
+const validationSchema = Yup.object({
+    name: Yup.string().required('Required'),
+    email: Yup.string().matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/, 'Invalid email address')
+    .required('Email is required'),
+    message: Yup.string().required('Required')
+})
 
 export default function Contact() {
 
@@ -21,23 +28,7 @@ export default function Contact() {
             alert(JSON.stringify(values, null, 2));
         },
 
-        validate: values => {
-            const errors: TErrors = {}
-
-            if(!values.name) {
-                errors.name = 'Required'    
-            }
-
-            if(!values.email) {
-                errors.email = 'Required'    
-            }
-
-            if(!values.message) {
-                errors.message = 'Required'    
-            }
-
-            return errors
-        }
+        validationSchema: validationSchema
     })   
 
     console.log(formik.values)
