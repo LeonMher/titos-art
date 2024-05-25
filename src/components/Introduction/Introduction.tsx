@@ -1,5 +1,5 @@
-
 export const Introduction = () =>{
+
     return(
         <div className="flex items-start justify-center flex-col w-[300px] gap-large">
             <p className='text-3xl text-black-100'>Hello, my name is Jane Scott</p>
