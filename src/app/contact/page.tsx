@@ -35,7 +35,6 @@ export default function Contact() {
     validationSchema,
   });
 
-  console.log(formik.values);
   return (
     <div className="flex flex-col items-center">
       <Navigation />

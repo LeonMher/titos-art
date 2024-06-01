@@ -13,8 +13,6 @@ export function Introduction() {
     AOS.refresh();
   }, []);
 
-  console.log(data, " data");
-
   const intro = data?.intro;
   const experience = data?.experience;
   return (
